@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{block #title}SACT{/block}</title>
+
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<link rel="stylesheet" href="{$basePath}/css/main.css?v=1" media="screen">
+</head>
+<body>
+<div id="wrapper">
+
+	<header>
+		<h1><a href="{$baseUri}">SACT</a></h1>
+	</header>
+
+
+
+	<div id="main">
+		{foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
+		{include #content}
+	</div><!-- #main -->
+
+
+
+	<footer>
+		<p>Copyright &copy; Nette Foundation, 2010</p>
+	</footer>
+
+</div><!-- #wrapper -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="{$basePath}/js/jquery-1.4.2.min.js"><\/script>')</script>
+<script src="{$basePath}/js/app.js"></script>
+</body>
+</html>

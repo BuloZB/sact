@@ -1,0 +1,16 @@
+{block #title}{$article->headline} :: {include #parent} {/block}
+
+
+{block #content}
+
+	{foreach $heads as $head}
+
+		<h3><a href="{plink article! 'slug'=>$head->slug}">{$head->headline}</a></h3>
+
+		{if $head->headline == $article->headline}
+			<div id="article">
+				{!$article->text}
+			</div>
+		{/if}
+
+	{/foreach}

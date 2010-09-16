@@ -19,20 +19,30 @@ use	Models\Content;
 class DefaultPresenter extends BasePresenter
 {
 
-	public function actionDefault()
-	{
-		$heads = Content::getHeads();
-		$article = Content::getArticle($heads[0]->slug);
-
-		$this->template->heads = $heads;
-		$this->template->article = $article;
-	}
+	private $slug = null;
 
 
 	public function handleArticle($slug)
 	{
+		$this->slug = $slug;
+
+		if ($this->isAjax()) {
+			usleep(1500000);
+
+			$this->invalidateControl('articleTxt');
+		}
+	}
+
+
+	public function renderDefault()
+	{
 		$heads = Content::getHeads();
-		$article = Content::getArticle($slug);
+
+		if ($this->slug) {
+			$article = Content::getArticle($this->slug);
+		} else {
+			$article = Content::getArticle($heads[0]->slug);
+		}
 
 		$this->template->heads = $heads;
 		$this->template->article = $article;

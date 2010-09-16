@@ -5,11 +5,15 @@
 
 	{foreach $heads as $head}
 
-		<h3><a href="{plink article! 'slug'=>$head->slug}">{$head->headline}</a></h3>
+		<h3 class="{if $head->headline == $article->headline}active{/if}">
+			<a href="{plink article! 'slug'=>$head->slug}">{$head->headline}</a>
+		</h3>
 
 		{if $head->headline == $article->headline}
 			<div id="article">
-				{!$article->text}
+				{snippet:articleTxt}
+					{!$article->text}
+				{/snippet}
 			</div>
 		{/if}
 

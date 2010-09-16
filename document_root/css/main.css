@@ -4,73 +4,34 @@
 
 
 /** HEADER **/
-header { background-color:#eaeaea; height:100px; margin:0 0 10px; position:relative; }
+header { background-color:#eaeaea; height:75px; margin:0 0 10px; position:relative; }
 
-	header h1 { position:absolute; left:15px; top:20px; }
-	header h1 a { color:#dedede; display:block; font-size:200%; height:60px; overflow:hidden; position:relative; width:192px; }
-	header h1 a:focus { outline:medium dotted #607890; }
-	header h1 a span { background:url('../images/homelink.png') 0 0 no-repeat; cursor:pointer; position:absolute; left:0; top:0; height:100%; width:100%; z-index:10; }
+	header h1 { position:absolute; left:3em; top:1.8em; }
+	header h1 a { color:#dedede; font-size:200%; }
+
 
 
 /** MAIN **/
-#main { background-color:#eaeaea; min-height:300px; margin:0 0 10px; padding:1em; position:relative; }
+#main { background-color:#eaeaea; margin:0 0 10px; min-height:400px; padding:20px; position:relative; text-align:center; }
 
 
-#posts { margin:3em; }
-	.post { margin:0 0 5em; }
-	.post.single { margin:0 0 3em; }
-		.post .entry-title { float:left; font-family:Palatino,'palatino linotype',serif; font-size:220%; margin:0.5em 1em 1em 0.5em; }
-		.post .entry-title a { text-decoration:none; }
-		.post .entry-date {
-			-moz-border-radius:10px 2px; -o-border-radius:10px 2px; -webkit-border-radius:10px 2px; border-radius:10px 2px;
-			background-color:#474746; color:#eee; float:right; margin:0.5em 2em; padding:0.2em 1em;
-		}
-		.post .comments-link { clear:right; float:right; margin:0 2em 1em 0; }
-			.post .comments-link a {
-				-moz-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px;
-				background-color:#607890; color:#eee; display:block; font-weight:bold; padding:0.5em 1em; text-align:center; text-decoration:none;
-			}
-			.post .comments-link a:hover { background-color:#8098b0; }
-			.post .comments-link a:focus { outline:medium dotted #607890; }
-
-		.post .entry-content { clear:both; font-size:120%; line-height:1.5; margin:0 1.5em 2em 0; }
-		.post .tag-links {}
-			.post .tag-links span { font-weight:bold; }
-			.post .tag-links a {}
-		.post.single .tag-links {
-			-moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
-			background-color:#6f6f68; color:#aaa; margin:0 2em 0 0; padding:0.5em;
-		}
-			.post.single .tag-links span { color:#eee; }
-			.post.single .tag-links a { color:#b5c2cf; text-decoration:none; }
-
-
-
-#comments { margin:0 2em 0 0; }
-	#comments h3 { clear:both; color:#888; float:left; font-size:120%; }
-
-	#comments .comments-link {
-		-moz-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px;
-		clear:none; float:right; margin:0 0 1em 0; background-color:#607890; color:#eee; display:block; font-weight:bold; padding:0.5em 1em; text-align:center; text-decoration:none;
+	#main h3 {
+		-moz-border-radius:10px 10px 0 0;
+		background-color:#fff; border:1px solid #777; display:inline-block; height:50px; line-height:50px; margin:0; padding:0 1em; position:relative; z-index:10;
 	}
+	#main h3.active { border-bottom:0 none; top:1px; }
+		#main h3 a { text-decoration:none; }
 
-	#commentlist { clear:both; font-size:120%; list-style:none outside none; margin:0; }
-		#commentlist li { margin:0 0 3em; }
-		#commentlist .commentHead { background-color:#d6d6d6; margin:0 0 1em; overflow:auto; padding:1em; }
-			#commentlist .commentPermalink { float:right; text-decoration:none; }
-			#commentlist .commentAuthor { float:left; font-weight:bold; margin:0 0 0.5em; }
-			#commentlist .commentDate { clear:left; color:#888; float:left; font-size:75%; margin:0 0 0 0.5em; }
-		#commentlist .commentBody {}
+	#main #article { background-color:#fff; border:1px solid #777; margin:0 5em; padding:1em; position:absolute; text-align:left; top:71px; }
 
-	#comments form { clear:both; }
-	#comments p { clear:both; }
+
 
 
 
 /** FOOTER **/
-footer { background-color:#eaeaea; height:50px; padding:1em; }
+footer { background-color:#eaeaea; height:32px; padding:1em; }
 
-	footer p { height:100%; line-height:50px; margin:0; text-align:center; }
+	footer p { height:100%; line-height:32px; margin:0; text-align:center; }
 
 
 

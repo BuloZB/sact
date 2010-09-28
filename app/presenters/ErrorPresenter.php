@@ -1,22 +1,22 @@
 <?php
 
 /**
- * My Application
+ * SACT
  *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
+ * @copyright  Copyright (c) 2010 Igor Hlina
+ * @package    SACT
  */
 
-use Nette\Debug,
+use	Nette\Debug,
 	Nette\Application\BadRequestException;
 
 
 
 /**
- * Error presenter.
+ * Error presenter
  *
- * @author     John Doe
- * @package    MyApplication
+ * @author     Igor Hlina
+ * @package    SACT
  */
 class ErrorPresenter extends BasePresenter
 {

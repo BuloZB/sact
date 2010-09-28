@@ -1,0 +1,8 @@
+<nav>
+	{foreach $heads as $head}
+
+		<a	href="{plink article! 'slug'=>$head->slug}"
+			class="{if $head->slug == $curentSlug}active{/if}">{$head->headline}</a>
+
+	{/foreach}
+</nav>

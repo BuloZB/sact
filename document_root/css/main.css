@@ -6,24 +6,23 @@
 /** HEADER **/
 header { background-color:#eaeaea; height:75px; margin:0 0 10px; position:relative; }
 
-	header h1 { position:absolute; left:3em; top:1.8em; }
+	header h1 { position:absolute; left:1em; top:1em; }
 	header h1 a { color:#dedede; font-size:200%; }
 
-
+	header nav { float:right; margin:50px 10px 0; }
+	header nav a, header nav a:visited {
+		-moz-border-radius:3px 3px 3px 3px;
+		background-color:#888; color:#eee; font-size:85%; font-weight:bold; padding:0.2em 0.5em; text-decoration:none;
+	}
+	header nav a:hover, header nav a:active, header nav a:focus, header nav a.active
+	{ background-color:#7398fa; }
 
 /** MAIN **/
-#main { background-color:#eaeaea; margin:0 0 10px; min-height:400px; padding:20px; position:relative; text-align:center; }
+#main { background-color:#eaeaea; margin:0 0 10px; padding:2em; position:relative; text-align:center; }
 
+	#article { position:relative; text-align:left; }
 
-	#main h3 {
-		-moz-border-radius:10px 10px 0 0;
-		background-color:#fff; border:1px solid #777; display:inline-block; height:50px; line-height:50px; margin:0; padding:0 1em; position:relative; z-index:10;
-	}
-	#main h3.active { border-bottom:0 none; top:1px; }
-		#main h3 a { text-decoration:none; }
-
-	#main #article { background-color:#fff; border:1px solid #777; margin:0 5em; padding:1em; position:absolute; text-align:left; top:71px; }
-
+		#article .spinner { background:url('../images/spinner.gif') 50% 50% no-repeat; display:none; height:100%; left:0; position:absolute; top:0; width:100%; }
 
 
 

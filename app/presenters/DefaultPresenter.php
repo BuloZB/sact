@@ -1,30 +1,28 @@
 <?php
 
 /**
- * My Application
+ * SACT
  *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
+ * @copyright  Copyright (c) 2010 Igor Hlina
+ * @package    Sact
  */
 
-use	Models\Content;
+use	Models\Content,
+	Components\Navigation;
 
 
 /**
- * Homepage presenter.
+ * Default presenter
  *
- * @author     John Doe
- * @package    MyApplication
+ * @author     Igor Hlina
+ * @package    SACT
  */
 class DefaultPresenter extends BasePresenter
 {
 
-	private $slug = null;
-
-
 	public function handleArticle($slug)
 	{
-		$this->slug = $slug;
+		Content::setCurentSlug($slug);
 
 		if ($this->isAjax()) {
 			usleep(1500000);
@@ -36,16 +34,21 @@ class DefaultPresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-		$heads = Content::getHeads();
+		$slug = Content::getCurentSlug();
 
-		if ($this->slug) {
-			$article = Content::getArticle($this->slug);
+		if (!$slug) {
+			$article = Content::getFirstArticle();
 		} else {
-			$article = Content::getArticle($heads[0]->slug);
+			$article = Content::getArticle($slug);
 		}
 
-		$this->template->heads = $heads;
 		$this->template->article = $article;
+	}
+
+
+	protected function  createComponentNavigation($name)
+	{
+		$navigation = new Navigation($this, $name);
 	}
 
 }

@@ -3,18 +3,10 @@
 
 {block #content}
 
-	{foreach $heads as $head}
-
-		<h3 class="{if $head->headline == $article->headline}active{/if}">
-			<a href="{plink article! 'slug'=>$head->slug}">{$head->headline}</a>
-		</h3>
-
-		{if $head->headline == $article->headline}
-			<div id="article">
-				{snippet:articleTxt}
-					{!$article->text}
-				{/snippet}
-			</div>
-		{/if}
-
-	{/foreach}
+	<div id="article">
+		<div id="articleContent">
+			{snippet:articleTxt}
+				{!$article->text}
+			{/snippet}
+		</div>
+	</div>

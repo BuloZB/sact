@@ -1,10 +1,10 @@
 <?php
 
 /**
- * My Application bootstrap file.
+ * SACT bootstrap file.
  *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
+ * @copyright  Copyright (c) 2010 Igor Hlina
+ * @package    SACT
  */
 
 
@@ -14,31 +14,22 @@ use Nette\Application\Route;
 use Nette\Application\SimpleRouter;
 
 
-// Step 1: Load Nette Framework
-// this allows load Nette Framework classes automatically so that
-// you don't have to litter your code with 'require' statements
+// Load Nette Framework
 require LIBS_DIR . '/Nette/loader.php';
 
 
-
-// Step 2: Configure environment
-// 2a) enable Nette\Debug for better exception and error visualisation
+// Configure environment
 Debug::enable();
-
-// 2b) load configuration from config.ini file
 Environment::loadConfig();
 
 
-
-// Step 3: Configure application
-// 3a) get and setup a front controller
+// Configure application
 $application = Environment::getApplication();
 $application->errorPresenter = 'Error';
-//$application->catchExceptions = TRUE;
+$application->catchExceptions = Environment::isProduction();
 
 
-
-// Step 4: Setup application router
+// Setup router
 $router = $application->getRouter();
 
 $router[] = new Route('index.php', array(
@@ -53,11 +44,9 @@ $router[] = new Route('<presenter>/<action>/<id>', array(
 ));
 
 
-
-// Step 5: Connect to database
+// Connect to database
 dibi::connect(Environment::getConfig('database'));
 
 
-
-// Step 6: Run the application!
+// Run the application!
 $application->run();

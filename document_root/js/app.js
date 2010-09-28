@@ -4,15 +4,25 @@ $(function() {
 		window.location.hash = slug;
 
 		// GUI stuff
-		$('#article').children().fadeTo(400, 0.01);
+		$('#articleContent').fadeTo(400, 0.01, function() {
+				$('header nav a').each(function(i, obj) {
+					$obj = $(obj);
+					$obj.removeClass('active');
+				});
 
-		// AJAX stuff
-		url  = String(window.location);
-		hash = window.location.hash;
+			$('#article').append('<div class="spinner"></div>')
+			$('#article .spinner').fadeIn(400, function() {
 
-		$.ajax({
-			url		: url.replace(hash, ''),
-			data	: {'do':'article', 'slug':slug}
+				// AJAX stuff
+				url  = String(window.location);
+				hash = window.location.hash;
+
+				$.ajax({
+					url		: url.replace(hash, ''),
+					data	: {'do':'article', 'slug':slug}
+				});
+
+			});
 		});
 	}
 
@@ -23,10 +33,10 @@ $(function() {
 	}
 
 
-	$('#main h3 a').click(function() {
+	$('header nav a').click(function(e) {
+		e.preventDefault();
 		var slug = this.href.match(/slug=([a-z0-9-]+)/);
 		ajaxCall(slug[1]);
-		return false;
 	});
 
 });
